@@ -1,0 +1,202 @@
+:root {
+    scroll-behavior: auto;    
+}
+
+::selection {
+    background: $primary;
+    color: $white;
+}
+
+::-webkit-input-placeholder {
+    opacity: 1 !important;
+    color: $placeholderColor !important;
+}
+
+:-moz-placeholder {
+    opacity: 1 !important;
+    color: $placeholderColor !important;
+}
+
+::-moz-placeholder {
+    opacity: 1 !important;
+    color: $placeholderColor !important;
+}
+
+:-ms-input-placeholder {
+    opacity: 1 !important;
+    color: $placeholderColor !important;
+}
+
+a {    
+    color: $primary;   
+}
+
+b,
+strong {
+    font-weight: 700;
+}
+
+
+h1 {
+    @include font-size($h1size);  
+}
+
+h2 {
+    @include font-size($h2size);  
+}
+
+h3 {
+    @include font-size($h3size);  
+}
+
+h4 {
+    @include font-size($h4size);   
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: $headingFont;
+    font-weight: 700;
+}
+
+.btn{
+    font-size: 15px;
+    font-weight: 700;    
+    border-radius: 6px;
+    letter-spacing: 0.100em;
+    padding: 12px 25px; 
+    &.btn-medium {
+        padding: 9px 20px;
+        font-size: 14px;
+        font-weight: 500;
+    }   
+    &.btn-primary-light{
+        background-color: $primaryLight;
+        &:hover{
+            background-color: darken($primaryLight, 10%);
+        }
+    }
+}
+
+.bg-primary-light{
+    background-color: $primaryLight;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    font-family: $bodyFontFamily;
+    line-height: $bodyLineHeight;
+    overflow-x: hidden;
+    color: $bodyTextColor;
+    position: relative;
+    font-size: $bodyFontSize;
+    background-size: cover;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+.wrapper{
+    overflow: hidden;   
+    @include media-breakpoint-down(lg){
+        padding-top: 104px !important;
+    }
+}
+
+.header-main {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;  
+    padding: 15px 0;
+    background-color: rgba($white, 0.8);  
+    backdrop-filter: blur(7px);
+    border-bottom: 1px solid rgba($black, 0.27);
+    margin-right: var(--fancybox-scrollbar-compensate);
+    transition: background-color .3s;  
+    .mob-logo{
+        width: 130px;
+        img{
+            width: 100%;
+            display: block;
+        }
+    } 
+}
+
+.hamburger {
+    position: relative;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    border: 5px solid transparent;
+    span {
+        width: 100%;
+        height: 2px;
+        background: $primary;
+        display: block;
+        position: absolute;
+        left: 0;
+        transition: all 0.3s;
+        &.h-top {
+            top: 0;
+        }
+        &.h-bottom {
+            bottom: 0;
+        }
+        &.h-middle {
+            top: 50%;
+            margin-top: -1px;
+        }
+    }
+    &.h-active {
+        span {
+            width: 100%;
+            &.h-top {
+                transform: rotate(45deg);
+                top: 50%;
+                margin-top: -1px;
+            }
+            &.h-middle {
+                transform: translateX(30px);
+                opacity: 0;
+            }
+            &.h-bottom {
+                transform: rotate(-45deg);
+                bottom: 50%;
+                margin-bottom: -1px;
+            }
+        }
+    }
+}
+
+
+.logo { 
+    color: $white;
+    padding: 0 1.5rem;
+    img,svg {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        display: block;       
+    }
+}
+
+.form-check-input{
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.multiselect{
+  --ms-tag-bg:#{$primary};  
+    &.is-active{
+        border-color: #9dc4e4 !important;
+        box-shadow: 0 0 0 0.25rem rgba($primary, 0.25) !important;
+    }
+}
+

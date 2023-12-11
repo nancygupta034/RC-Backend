@@ -1,0 +1,50 @@
+:root{
+    --bs-btn-disabled-opacity: .45;
+}
+
+$grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1500px, );
+$container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1140px, xxl: 1440px, );
+$rfs-breakpoint: 1500px;
+
+// Color Palette
+$primary: #3A89C9;
+$primaryLight: #E9F5FF;
+$price: #cc0000;
+
+$secondary: #FCD200;
+
+
+$lightGray:#E4E4E4;
+
+$lightGray1:#efefef;
+
+$borderColor: #dee2e6;
+$border2:#616161;
+$darkGray: #484848;
+
+$bodyTextColor: #000;
+$placeholderColor: #606060;
+$white: #fff;
+$black: #000;
+$textDark: #666666;
+
+
+$h1size: 40px;
+$h2size: 24px;
+$h3size: 20px;
+$h4size: 18px;
+$h5size: 17px;
+$bodyFontSize: 14px;
+$bodyLineHeight: 1.5;
+$bodyFontFamily: 'Roboto', sans-serif;
+$headingFont: 'Lora', serif;
+
+$headerShadow:0 2px 5px rgba($black, 0.15);
+$boxShadow: 5px 5px 15px rgba($black, 0.16); 
+
+$enable-negative-margins: true;
+
+
+
+
+$form-select-indicator: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-caret-down-fill' viewBox='0 0 16 16'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>");

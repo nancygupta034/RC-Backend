@@ -1,0 +1,114 @@
+<template>
+    <section class="section-content bg-white col p-4">
+        <Breadcrumb :crumbs="breadcrumbs" />
+        <div class="title-box">
+            <div class="row gy-3">
+                <LeftSideHeader headerData="Team Members" />
+                <RightSideButton :btnData="btnData" />
+            </div>
+        </div>
+        <div class="content-wrap pt-4">
+            <div class="row mb-3 g-3 flex-sm-row-reverse align-items-center">
+                <div class="col-sm-auto">
+                    <div class="data-search">
+                        <input
+                            type="text"
+                            v-model="searchQuery"
+                            v-on:input="getData()"
+                            class="form-control form-control-sm"
+                            placeholder="Search by Name"
+                        />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="data-info">
+                        Showing {{ teams.length }} of {{ totalRecords }} Results
+                    </div>
+                </div>
+            </div>
+            <List
+                :teams="teams"
+                :totalCount="totalPages"
+                @changePage="getData"
+                @getRecord="get"
+            />
+        </div>
+    </section>
+</template>
+
+<script>
+import { fetchList, fetch } from "@/api/team";
+import List from "@/components/team/List.vue";
+import Breadcrumb from "@/components/includes/Breadcrumb.vue";
+import RightSideButton from "@/components/includes/RightSideButton.vue";
+import LeftSideHeader from "@/components/includes/LeftSideHeader.vue";
+export default {
+    name: "AgeRangeList",
+    components: {
+        List,
+        Breadcrumb,
+        RightSideButton,
+        LeftSideHeader,
+    },
+    data() {
+        return {
+            teams: [],
+            searchQuery: "",
+            totalPages: 1,
+            totalRecords: 0,
+            minAge: null,
+            maxAge: null,
+            rangeId: 0,
+            displayComponent: true,
+            breadcrumbs: [
+                {
+                    class: null,
+                    url: "/team-members",
+                    name: "Team",
+                },
+                {
+                    class: "active",
+                    url: "",
+                    name: "List",
+                },
+            ],
+            btnData: {
+                title: "Add New",
+                url: "/team-members/add",
+            },
+        };
+    },
+    created() {
+        this.getData();
+    },
+    methods: {
+        getData(pageNo = 0) {
+            this.minAge = null;
+            this.maxAge = null;
+            this.rangeId = 0;
+            this.listLoading = true;
+            fetchList(`?skip=${pageNo}&search=${this.searchQuery}`).then(
+                (response) => {
+                    this.totalRecords = response.data.totalRecords;
+                    this.totalPages =
+                        response.data.totalRecords > 10
+                            ? Math.ceil(response.data.totalRecords / 10)
+                            : 1;
+                    this.teams = response.data.data;
+                }
+            );
+        },
+        get(id) {
+            this.displayComponent = false;
+            fetch(id).then((response) => {
+                this.displayComponent = true;
+                if (response.success === true) {
+                    this.minAge = response.data.min_age;
+                    this.maxAge = response.data.max_age;
+                    this.rangeId = response.data.id;
+                }
+            });
+        },
+    },
+};
+</script>

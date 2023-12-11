@@ -1,0 +1,36 @@
+@include media-breakpoint-down(lg) { 
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;    
+        min-height: 100vh;  
+        overflow: auto;
+        opacity: 0;
+        transform: translateX(-100%);
+        visibility: hidden;
+        box-shadow: 5px 0px 5px rgba($black, 0.1);
+        transition: all 0.3s ease-out;  
+        z-index: 9999;
+        border-radius: 0;
+    }
+   
+    .menu-active {
+        .sidebar {           
+            visibility: visible;
+            opacity: 1;
+            transform: none;
+        }
+    }  
+}
+
+@include media-breakpoint-down(lg) {
+    .thumbWrapper ul li{
+        width: 33.33% !important;
+    }
+}
+@include media-breakpoint-down(sm) {
+    .thumbWrapper ul li{
+        width: 50% !important;
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "watch": "vite build --watch"
+    },
+    "devDependencies": {
+        "@popperjs/core": "^2.11.6",
+        "@vitejs/plugin-vue": "^4.0.0",
+        "axios": "^1.4.0",
+        "bootstrap": "^5.3.0",
+        "laravel-vite-plugin": "^0.7.5",
+        "sass": "^1.56.1",
+        "vite": "^4.0.0",
+        "vue": "^3.2.36"
+    },
+    "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^39.0.2",
+        "@ckeditor/ckeditor5-vue": "^5.1.0",
+        "@fancyapps/ui": "^5.0.24",
+        "@morev/vue-transitions": "^2.3.6",
+        "@vee-validate/rules": "^4.10.8",
+        "@vueform/multiselect": "^2.6.2",
+        "@vuelidate/core": "^2.0.3",
+        "@vuelidate/validators": "^2.0.3",
+        "@vuepic/vue-datepicker": "^7.1.0",
+        "bootstrap-vue": "^2.23.1",
+        "dayjs": "^1.11.9",
+        "flatpickr": "^4.6.13",
+        "hashids": "^2.3.0",
+        "js-cookie": "^3.0.5",
+        "vee-validate": "^4.10.8",
+        "vite-plugin-static-copy": "^0.17.0",
+        "vue-axios": "^3.5.2",
+        "vue-flatpickr-component": "^11.0.3",
+        "vue-router": "^4.0.13",
+        "vue-sweetalert2": "^5.0.5",
+        "vue-toast-notification": "^3.1.1",
+        "vue3-daterange-picker": "^1.0.1",
+        "vuex": "^4.1.0",
+        "vuex-persistedstate": "^4.1.0"
+    }
+}
